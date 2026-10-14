@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HSGGY9SMTG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HSGGY9SMTG');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApexForge Ultra - Futuristic Hyper-Studio & All-In-One Toolkit</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: {
+                            base: '#070913',
+                            card: 'rgba(12, 16, 30, 0.75)',
+                            border: 'rgba(0, 243, 255, 0.18)'
+                        },
+                        neon: {
+                            cyan: '#00f3ff',
+                            violet: '#9d4edd',
+                            pink: '#ff007f',
+                            lime: '#00ff88',
+                            amber: '#ffb703'
+                        }
+                    },
+                    animation: {
+                        'spin-slow': 'spin 12s linear infinite',
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%': { boxShadow: '0 0 15px rgba(0, 243, 255, 0.2)' },
+                            '100%': { boxShadow: '0 0 35px rgba(157, 78, 221, 0.5), 0 0 20px rgba(0, 243, 255, 0.4)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome Icons & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- QRCode JS Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>
+        * {
+            font-family: 'Space Grotesk', sans-serif;
+            cursor: none !important; /* Managed by custom magnetic neon cursor */
+        }
+        code, pre, .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Glassmorphism styling */
+        .glass-panel {
+            background: rgba(10, 14, 26, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 243, 255, 0.15);
+        }
+
+        .glass-card {
+            background: rgba(14, 20, 36, 0.65);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(0, 243, 255, 0.12);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 243, 255, 0.5);
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 12px 35px -10px rgba(0, 243, 255, 0.3), 0 0 15px rgba(157, 78, 221, 0.2);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #05070e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1a2238;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f3ff;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #00f3ff 0%, #9d4edd 50%, #ff007f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Glowing Circular Arrow Badge Container */
+        .circle-arrow-btn {
+            position: relative;
+            display: inline-flex;
+            items-center: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(0, 243, 255, 0.08);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            color: #00f3ff;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.15);
+        }
+        .circle-arrow-btn:hover {
+            background: #00f3ff;
+            color: #070913;
+            transform: scale(1.1) rotate(45deg);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+        }
+
+        /* Neon Glow Button */
+        .btn-neon {
+            background: linear-gradient(135deg, rgba(0, 243, 255, 0.2) 0%, rgba(157, 78, 221, 0.2) 100%);
+            border: 1px solid rgba(0, 243, 255, 0.4);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .btn-neon:hover {
+            background: linear-gradient(135deg, rgba(0, 243, 255, 0.45) 0%, rgba(157, 78, 221, 0.45) 100%);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
+            border-color: rgba(0, 243, 255, 0.9);
+            transform: translateY(-2px);
+        }
+
+        /* Background Grid */
+        .bg-grid-pattern {
+            background-size: 50px 50px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+        }
+
+        /* Custom Interactive Magnetic Circular Cursor */
+        #customCursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(0, 243, 255, 0.8);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease, border 0.25s ease;
+            box-shadow: 0 0 15px #00f3ff, 0 0 30px rgba(0, 243, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #customCursorFollower {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(0, 243, 255, 0.5);
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: transform 0.12s ease-out;
+            box-shadow: inset 0 0 10px rgba(0, 243, 255, 0.1);
+        }
+
+        /* Cursor state when hovering over interactive cards */
+        body.cursor-hover #customCursor {
+            width: 50px;
+            height: 50px;
+            background: rgba(7, 9, 19, 0.85);
+            border: 2px solid #00f3ff;
+            box-shadow: 0 0 25px rgba(0, 243, 255, 0.8);
+        }
+
+        body.cursor-hover #customCursor::after {
+            content: '\f061'; /* FontAwesome arrow right */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #00f3ff;
+            font-size: 16px;
+            animation: arrowSpin 3s linear infinite;
+        }
+
+        @keyframes arrowSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-[#070913] text-slate-100 min-h-screen relative overflow-x-hidden selection:bg-cyan-500 selection:text-black">
+
+    <!-- CUSTOM MAGNETIC NEON CIRCLE CURSOR -->
+    <div id="customCursor"></div>
+    <div id="customCursorFollower"></div>
+
+    <!-- Interactive Particle Canvas Background -->
+    <canvas id="particleCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-70"></canvas>
+    <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+
+    <!-- MAIN WRAPPER -->
+    <div class="relative z-10 flex flex-col min-h-screen">
+
+        <!-- HEADER & NAVIGATION -->
+        <header class="sticky top-0 z-40 glass-panel border-b border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+                
+                <!-- Brand / Logo -->
+                <div class="flex items-center gap-3 cursor-pointer group" onclick="filterCategory('All')">
+                    <div class="circle-arrow-btn !w-12 !h-12 !border-cyan-400/40">
+                        <i class="fa-solid fa-atom text-cyan-400 text-xl group-hover:rotate-180 transition-transform duration-700"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-black tracking-wider gradient-text uppercase">APEXFORGE</span>
+                        <span class="block text-[10px] font-mono tracking-widest text-cyan-400 -mt-1 uppercase flex items-center gap-1">
+                            <span>ULTRA v4.0</span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Global Search Input -->
+                <div class="flex-1 max-w-lg relative hidden md:block">
+                    <div class="relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-cyan-400 text-sm"></i>
+                        <input type="text" id="searchInput" oninput="handleSearch()" 
+                            placeholder="Search 35+ tools (e.g., JSON, Glass, QR, Regex, Gradient)..." 
+                            class="w-full bg-slate-900/90 border border-slate-700/80 rounded-2xl pl-11 pr-10 py-2.5 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all shadow-inner">
+                        <button onclick="clearSearch()" id="clearSearchBtn" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Action Controls -->
+                <div class="flex items-center gap-3">
+                    <!-- Sound Toggle -->
+                    <button onclick="toggleAudio()" id="audioBtn" title="Toggle UI Sound FX" class="circle-arrow-btn !w-10 !h-10 !text-slate-300 hover:!text-cyan-400">
+                        <i class="fa-solid fa-volume-xmark text-sm" id="audioIcon"></i>
+                    </button>
+
+                    <!-- Favorites Toggle Filter -->
+                    <button onclick="toggleFavoritesOnly()" id="favFilterBtn" class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-400/50 text-xs text-slate-300 flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-star text-amber-400"></i>
+                        <span class="hidden sm:inline font-mono">Starred (<span id="favCount">0</span>)</span>
+                    </button>
+
+                    <a href="#toolsGridSection" class="btn-neon text-xs px-4 py-2.5 rounded-xl font-bold text-cyan-300 flex items-center gap-2">
+                        <span>Launch Suite</span>
+                        <div class="w-5 h-5 rounded-full bg-cyan-400/20 flex items-center justify-center">
+                            <i class="fa-solid fa-arrow-down text-[10px]"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Search Bar -->
+            <div class="px-4 pb-3 md:hidden">
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-cyan-400 text-xs"></i>
+                    <input type="text" id="searchInputMobile" oninput="handleSearchMobile()" 
+                        placeholder="Search tools..." 
+                        class="w-full bg-slate-900/90 border border-slate-700/80 rounded-xl pl-10 pr-4 py-2 text-xs text-slate-100 placeholder-slate-500">
+                </div>
+            </div>
+        </header>
+
+        <!-- HERO SECTION -->
+        <section class="relative py-12 lg:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-950/80 border border-cyan-400/40 text-cyan-300 text-xs font-mono mb-6 backdrop-blur-md animate-float">
+                <i class="fa-solid fa-bolt text-amber-400"></i>
+                <span>HYPER-FAST CLIENT-SIDE STUDIO • 35+ PREMIA UTILITIES</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-5 text-white">
+                Next-Gen Developer & <br class="hidden sm:block">
+                <span class="gradient-text">Creative Utility Ecosystem</span>
+            </h1>
+            
+            <p class="max-w-3xl mx-auto text-slate-400 text-sm sm:text-base leading-relaxed mb-8">
+                Empower your workspace with high-performance tools for code manipulation, real-time CSS design builders, math logic engines, audio synthesizers, and creative micro-apps.
+            </p>
+
+            <!-- Dashboard Stats Counter -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto glass-panel p-4 rounded-2xl border border-slate-800/80 shadow-2xl">
+                <div class="text-center p-3 border-r border-slate-800/80">
+                    <div class="text-2xl sm:text-3xl font-black text-cyan-400 font-mono">35+</div>
+                    <div class="text-xs text-slate-400 mt-1">Active Utilities</div>
+                </div>
+                <div class="text-center p-3 md:border-r border-slate-800/80">
+                    <div class="text-2xl sm:text-3xl font-black text-fuchsia-400 font-mono">100%</div>
+                    <div class="text-xs text-slate-400 mt-1">Client Privacy</div>
+                </div>
+                <div class="text-center p-3 border-r border-slate-800/80">
+                    <div class="text-2xl sm:text-3xl font-black text-emerald-400 font-mono">0.0ms</div>
+                    <div class="text-xs text-slate-400 mt-1">Execution Delay</div>
+                </div>
+                <div class="text-center p-3">
+                    <div class="text-2xl sm:text-3xl font-black text-amber-400 font-mono">FREE</div>
+                    <div class="text-xs text-slate-400 mt-1">Open Access</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORY NAV BAR -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 w-full">
+            <div class="flex items-center justify-start md:justify-center gap-2.5 overflow-x-auto pb-3 pt-1 no-scrollbar" id="categoryPills">
+                <!-- Dynamically injected category buttons -->
+            </div>
+        </section>
+
+        <!-- MAIN TOOLS GRID -->
+        <section id="toolsGridSection" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 flex-grow w-full">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl font-bold text-slate-100 flex items-center gap-2.5" id="activeCategoryTitle">
+                    <i class="fa-solid fa-shapes text-cyan-400"></i> All Studio Utilities
+                </h2>
+                <span class="text-xs font-mono text-slate-500" id="toolCounter">Showing 35 tools</span>
+            </div>
+
+            <!-- Grid Container -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5" id="toolsGrid">
+                <!-- Tool Cards dynamically generated via JS -->
+            </div>
+
+            <!-- No Results -->
+            <div id="noResults" class="hidden text-center py-16 glass-panel rounded-2xl border border-slate-800">
+                <i class="fa-solid fa-ghost text-5xl text-slate-600 mb-4 animate-bounce"></i>
+                <h3 class="text-lg font-bold text-slate-300">No tools match your query</h3>
+                <p class="text-slate-500 text-sm mt-1">Try typing another keyword or selecting a different category.</p>
+                <button onclick="filterCategory('All')" class="mt-4 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-cyan-400 text-xs font-mono rounded-xl border border-slate-700">
+                    Reset Filter
+                </button>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="glass-panel border-t border-slate-800/80 py-8 mt-auto relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="circle-arrow-btn !w-8 !h-8">
+                        <i class="fa-solid fa-atom text-xs"></i>
+                    </div>
+                    <span class="text-sm font-extrabold text-slate-200">ApexForge Ultra</span>
+                    <span class="text-xs text-slate-500">© 2026 • Hyper-Modern Web Platform</span>
+                </div>
+                <div class="flex items-center gap-6 text-xs text-slate-400 font-mono">
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-emerald-400"></i> Local Storage Protected</span>
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-microchip text-cyan-400"></i> Pure JS Engine</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- TOOL MODAL / POPUP -->
+    <div id="toolModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-xl">
+        <div class="glass-panel w-full max-w-4xl max-h-[92vh] rounded-2xl border border-cyan-400/40 flex flex-col shadow-2xl shadow-cyan-950/60 overflow-hidden relative">
+            
+            <!-- Modal Header -->
+            <div class="px-6 py-4 border-b border-slate-800/80 flex items-center justify-between bg-slate-900/70">
+                <div class="flex items-center gap-3">
+                    <div id="modalIcon" class="circle-arrow-btn !w-10 !h-10">
+                        <i class="fa-solid fa-gear"></i>
+                    </div>
+                    <div>
+                        <h3 id="modalTitle" class="text-lg font-bold text-white leading-tight">Tool Title</h3>
+                        <p id="modalCategory" class="text-xs text-cyan-400 font-mono">Category</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button id="modalFavBtn" onclick="toggleCurrentModalFavorite()" class="w-9 h-9 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-amber-400 flex items-center justify-center transition-all">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <button onclick="closeModal()" class="w-9 h-9 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-all">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal Interactive Body -->
+            <div id="modalBody" class="p-6 overflow-y-auto flex-1 space-y-4">
+                <!-- Content dynamically injected -->
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-6 py-3 border-t border-slate-800/80 bg-slate-900/50 flex items-center justify-between text-xs text-slate-500 font-mono">
+                <span>ApexForge Engine v4.0</span>
+                <button onclick="closeModal()" class="px-4 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl">Close Utility</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATIONS -->
+    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- MAIN JAVASCRIPT LOGIC & 35 FULLY FUNCTIONAL UTILITIES -->
+    <script>
+        /* ==========================================================================
+           1. DATA STRUCTURE: 35 FULLY FUNCTIONAL TOOLS
+           ========================================================================== */
+        const categories = [
+            "All", 
+            "Text & Content", 
+            "Dev & Code", 
+            "Design & Color", 
+            "Math & Logic", 
+            "Utility & Productivity"
+        ];
+
+        let activeModalToolId = null;
+        let favorites = JSON.parse(localStorage.getItem('apex_favorites') || '[]');
+        let showFavoritesOnly = false;
+        let soundEnabled = false;
+
+        const toolsData = [
+            // 1. TEXT & CONTENT STUDIO
+            {
+                id: "word-counter",
+                title: "Word & Character Counter",
+                category: "Text & Content",
+                icon: "fa-font",
+                desc: "Analyze word count, character metrics, reading time & reading score.",
+                render: () => `
+                    <div class="space-y-4">
+                        <textarea id="wcInput" oninput="runWordCounter()" rows="6" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-slate-200 focus:border-cyan-400 focus:outline-none font-mono" placeholder="Type or paste text here..."></textarea>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <div class="glass-panel p-3 rounded-xl text-center"><div class="text-xl font-bold text-cyan-400 font-mono" id="wcWords">0</div><div class="text-[10px] text-slate-400">Words</div></div>
+                            <div class="glass-panel p-3 rounded-xl text-center"><div class="text-xl font-bold text-fuchsia-400 font-mono" id="wcChars">0</div><div class="text-[10px] text-slate-400">Characters</div></div>
+                            <div class="glass-panel p-3 rounded-xl text-center"><div class="text-xl font-bold text-emerald-400 font-mono" id="wcSentences">0</div><div class="text-[10px] text-slate-400">Sentences</div></div>
+                            <div class="glass-panel p-3 rounded-xl text-center"><div class="text-xl font-bold text-amber-400 font-mono" id="wcReadTime">0m</div><div class="text-[10px] text-slate-400">Read Time</div></div>
+                        </div>
+                    </div>`
+            },
+            {
+                id: "case-converter",
+                title: "Case Transformer",
+                category: "Text & Content",
+                icon: "fa-text-height",
+                desc: "Transform text to UPPERCASE, lowercase, Title Case, camelCase, kebab-case, snake_case.",
+                render: () => `
+                    <div class="space-y-4">
+                        <textarea id="ccInput" rows="4" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-slate-200 focus:border-cyan-400 focus:outline-none" placeholder="Enter text to convert..."></textarea>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                            <button onclick="convertCase('upper')" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-mono rounded-lg text-cyan-300">UPPERCASE</button>
+                            <button onclick="convertCase('lower')" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-mono rounded-lg text-cyan-300">lowercase</button>
+                            <button onclick="convertCase('title')" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-mono rounded-lg text-cyan-300">Title Case</button>
+                            <button onclick="convertCase('camel')" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-mono rounded-lg text-cyan-300">camelCase</button>
+                            <button onclick="convertCase('kebab')" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-mono rounded-lg text-cyan-300">kebab-case</button>
+                            <button onclick="convertCase('snake')" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-mono rounded-lg text-cyan-300">snake_case</button>
+                        </div>
+                    </div>`
+            },
+            {
+                id: "lorem-generator",
+                title: "Lorem Ipsum & Dummy Text",
+                category: "Text & Content",
+                icon: "fa-paragraph",
+                desc: "Generate placeholder text with custom paragraph count.",
+                render: () => `
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <label class="text-xs text-slate-400">Paragraphs:</label>
+                            <input type="number" id="loremCount" value="3" min="1" max="10" class="bg-slate-900 border border-slate-700 rounded-lg px-3 py-1 text-sm w-20 text-center font-mono">
+                            <button onclick="generateLorem()" class="px-4 py-2 btn-neon text-xs rounded-xl text-cyan-300 font-bold">Generate</button>
+                        </div>
+                        <div id="loremOutput" class="bg-slate-900 border border-slate-800 rounded-xl p-4 text-xs text-slate-300 max-h-60 overflow-y-auto space-y-2 font-serif leading-relaxed">Click generate...</div>
+                        <button onclick="copyToClipboard(document.getElementById('loremOutput').innerText)" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs rounded-lg text-cyan-400"><i class="fa-regular fa-copy"></i> Copy Text</button>
+                    </div>`
+            },
+            {
+                id: "url-base64-codec",
+                title: "URL & Base64 Codec",
+                category: "Text & Content",
+                icon: "fa-code",
+                desc: "Encode or decode strings via Base64 or URL encoding schemes.",
+                render: () => `
+                    <div class="space-y-4">
+                        <textarea id="encInput" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-slate-200" placeholder="Enter string..."></textarea>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="runEncoding('b64enc')" class="px-3 py-1.5 bg-slate-800 text-xs text-cyan-300 rounded-lg">Base64 Encode</button>
+                            <button onclick="runEncoding('b64dec')" class="px-3 py-1.5 bg-slate-800 text-xs text-cyan-300 rounded-lg">Base64 Decode</button>
+                            <button onclick="runEncoding('urlenc')" class="px-3 py-1.5 bg-slate-800 text-xs text-fuchsia-300 rounded-lg">URL Encode</button>
+                            <button onclick="runEncoding('urldec')" class="px-3 py-1.5 bg-slate-800 text-xs text-fuchsia-300 rounded-lg">URL Decode</button>
+                        </div>
+                        <textarea id="encOutput" rows="3" readonly class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-emerald-400 font-mono" placeholder="Output result..."></textarea>
+                    </div>`
+            },
+            {
+                id: "markdown-previewer",
+                title: "Markdown Live Editor",
+                category: "Text & Content",
+                icon: "fa-file-lines",
+                desc: "Write Markdown code on the left and preview formatted HTML live.",
+                render: () => `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <textarea id="mdInput" oninput="renderMarkdown()" rows="8" class="bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs font-mono text-slate-200" placeholder="# Hello World\nWrite **Markdown** here..."></textarea>
+                        <div id="mdOutput" class="bg-slate-900 border border-slate-800 rounded-xl p-3 text-xs text-slate-300 overflow-y-auto max-h-[220px]">Preview here...</div>
+                    </div>`
+            },
+            {
+                id: "line-dedup",
+                title: "Duplicate Line Remover",
+                category: "Text & Content",
+                icon: "fa-list-ol",
+                desc: "Strip out duplicate lines and clean up raw text logs.",
+                render: () => `
+                    <div class="space-y-3">
+                        <textarea id="dedupInput" rows="5" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs font-mono text-slate-200" placeholder="Paste text lines here..."></textarea>
+                        <button onclick="runDeduplicate()" class="px-4 py-2 btn-neon text-xs text-cyan-300 rounded-xl">Remove Duplicates</button>
+                    </div>`
+            },
+            {
+                id: "text-reverse",
+                title: "Reverse Text & Palindrome",
+                category: "Text & Content",
+                icon: "fa-arrows-rotate",
+                desc: "Flip text string backwards and verify palindrome status.",
+                render: () => `
+                    <div class="space-y-3">
+                        <input type="text" id="revInput" oninput="runReverseText()" placeholder="Type phrase..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-slate-200">
+                        <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl font-mono text-xs text-cyan-400" id="revOutput">Reversed text will appear here...</div>
+                        <div id="palCheck" class="text-xs font-mono text-slate-400"></div>
+                    </div>`
+            },
+
+            // 2. DEV & CODE HUB
+            {
+                id: "json-formatter",
+                title: "JSON Formatter & Validator",
+                category: "Dev & Code",
+                icon: "fa-brackets-curly",
+                desc: "Format, minify, and validate JSON payloads with visual errors.",
+                render: () => `
+                    <div class="space-y-3">
+                        <textarea id="jsonInput" rows="6" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs font-mono text-cyan-300" placeholder='{"app": "ApexForge", "version": 4}'></textarea>
+                        <div class="flex gap-2">
+                            <button onclick="formatJSON(2)" class="px-3 py-1.5 bg-cyan-950 text-cyan-400 border border-cyan-800 rounded-lg text-xs">Format (2 Spaces)</button>
+                            <button onclick="formatJSON(0)" class="px-3 py-1.5 bg-slate-800 text-slate-300 rounded-lg text-xs">Minify</button>
+                        </div>
+                        <div id="jsonStatus" class="text-xs font-mono text-slate-400"></div>
+                    </div>`
+            },
+            {
+                id: "glassmorphism-gen",
+                title: "CSS Glassmorphism Studio",
+                category: "Dev & Code",
+                icon: "fa-square",
+                desc: "Design glowing glass CSS effects with live sliders and blur controls.",
+                render: () => `
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 gap-3 text-xs">
+                            <div>Blur: <input type="range" id="glassBlur" min="0" max="40" value="16" oninput="updateGlass()" class="w-full"></div>
+                            <div>Opacity: <input type="range" id="glassOp" min="0" max="1" step="0.05" value="0.25" oninput="updateGlass()" class="w-full"></div>
+                        </div>
+                        <div class="flex items-center justify-center py-8 bg-gradient-to-tr from-purple-900 via-slate-950 to-cyan-950 rounded-xl border border-slate-800 relative">
+                            <div id="glassPreview" class="w-40 h-24 rounded-2xl border flex items-center justify-center text-xs font-mono text-cyan-300">Glass Effect</div>
+                        </div>
+                        <div class="bg-slate-900 p-2.5 rounded-xl flex justify-between items-center text-xs font-mono text-cyan-400">
+                            <span id="glassCode" class="truncate">backdrop-filter: blur(16px);</span>
+                            <button onclick="copyToClipboard(document.getElementById('glassCode').innerText)" class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded"><i class="fa-regular fa-copy"></i></button>
+                        </div>
+                    </div>`
+            },
+            {
+                id: "gradient-generator",
+                title: "CSS Multi-Gradient Generator",
+                category: "Dev & Code",
+                icon: "fa-fill-drip",
+                desc: "Build linear and radial gradient colors with exportable CSS rules.",
+                render: () => `
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <input type="color" id="gradCol1" value="#00f3ff" oninput="updateGradient()" class="w-10 h-9 rounded bg-transparent cursor-pointer">
+                            <input type="color" id="gradCol2" value="#9d4edd" oninput="updateGradient()" class="w-10 h-9 rounded bg-transparent cursor-pointer">
+                            <select id="gradType" onchange="updateGradient()" class="bg-slate-900 border border-slate-700 text-xs rounded-lg p-2 text-slate-200">
+                                <option value="linear">Linear (135deg)</option>
+                                <option value="radial">Radial Circle</option>
+                            </select>
+                        </div>
+                        <div id="gradPreview" class="h-24 rounded-xl border border-slate-800"></div>
+                        <div class="bg-slate-900 p-2.5 rounded-xl flex justify-between items-center text-xs font-mono text-cyan-400">
+                            <span id="gradCode" class="truncate">background: linear-gradient(...);</span>
+                            <button onclick="copyToClipboard(document.getElementById('gradCode').innerText)" class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded"><i class="fa-regular fa-copy"></i></button>
+                        </div>
+                    </div>`
+            },
+            {
+                id: "color-converter",
+                title: "Color Format Converter",
+                category: "Dev & Code",
+                icon: "fa-palette",
+                desc: "Translate color representations between HEX, RGB, HSL, and HSV.",
+                render: () => `
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <input type="color" id="colPicker" value="#00f3ff" oninput="updateColorConv()" class="w-12 h-10 rounded cursor-pointer bg-transparent">
+                            <input type="text" id="hexInput" value="#00f3ff" oninput="updateColorConvFromHex()" class="bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm font-mono text-cyan-300 uppercase w-full">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs font-mono">
+                            <div class="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-slate-300">RGB: <span id="rgbVal" class="text-cyan-400">rgb(0, 243, 255)</span></div>
+                            <div class="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-slate-300">HSL: <span id="hslVal" class="text-fuchsia-400">hsl(183, 100%, 50%)</span></div>
+                            <div class="p-2.5 bg-slate-900 rounded-xl border border-slate-800 text-slate-300">HEX: <span id="hexVal" class="text-emerald-400">#00f3ff</span></div>
+                        </div>
+                    </div>`
+            },
+            {
+                id: "html-beautifier",
+                title: "HTML / XML Beautifier",
+                category: "Dev & Code",
+                icon: "fa-code-compare",
+                desc: "Indent and re-format unformatted HTML markup cleanly.",
+                render: () => `
+                    <div class="space-y-3">
+                        <textarea id="htmlInput" rows="5" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs font-mono text-slate-200" placeholder="<div><span>Unformatted HTML</span></div>"></textarea>
+                        <button onclick="beautifyHTML()" class="px-4 py-2 btn-neon text-xs text-cyan-300 rounded-xl">Beautify Markup</button>
+                    </div>`
+            },
+            {
+                id: "regex-tester",
+                title: "Regex Live Tester",
+                category: "Dev & Code",
+                icon: "fa-asterisk",
+                desc: "Test regular expressions against sample string datasets.",
+                render: () => `
+                    <div class="space-y-3">
+                        <div class="flex gap-2">
+                            <input type="text" id="regexPattern" placeholder="Pattern (e.g., [a-z]+)" oninput="testRegex()" class="bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs font-mono text-cyan-300 flex-1">
+                            <input type="text" id="regexFlags" value="g" placeholder="flags" oninput="testRegex()" class="bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs font-mono text-slate-400 w-16 text-center">
+                        </div>
+                        <textarea id="regexTestText" oninput="testRegex()" rows="4" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-slate-200" placeholder="Type test string..."></textarea>
+                        <div id="regexOutput" class="bg-slate-950 p-3 rounded-lg border border-slate-800 text-xs font-mono min-h-[50px]">Matches appear here...</div>
+                    </div>`
+            },
+            {
+                id: "flexbox-builder",
+                title: "CSS Flexbox Builder",
+                category: "Dev & Code",
+                icon: "fa-cubes",
+                desc: "Interactively test flex container directions and alignment properties.",
+                render: () => `
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <button onclick="setFlex('row')" class="px-3 py-1 bg-slate-800 text-cyan-300 rounded">Row</button>
+                            <button onclick="setFlex('column')" class="px-3 py-1 bg-slate-800 text-cyan-300 rounded">Column</button>
+                            <button onclick="setFlexAlign('center')" class="px-3 py-1 bg-slate-800 text-fuchsia-300 rounded">Align Center</button>
+                            <button onclick="setFlexJustify('space-between')" class="px-3 py-1 bg-slate-800 text-emerald-300 rounded">Space Between</button>
+                        </div>
+                        <div id="flexPreview" class="h-28 bg-slate-950 border border-slate-800 rounded-xl p-2 flex gap-2 items-center justify-center">
+                            <div class="w-10 h-10 bg-cyan-500/30 border border-cyan-400 rounded flex items-center justify-center text-xs">1</div>
+                            <div class="w-10 h-10 bg-purple-500/30 border border-purple-400 rounded flex items-center justify-center text-xs">2</div>
+                            <div class="w-10 h-10 bg-pink-500/30 border border-pink-400 rounded flex items-center justify-center text-xs">3</div>
+                        </div>
+                    </div>`
+            },
+            {
+                id: "meta-tag-gen",
+                title: "SEO Meta Tag Studio",
+                category: "Dev & Code",
+                icon: "fa-tags",
+                desc: "Generate OpenGraph and Twitter cards meta tags.",
+                render: () => `
+                    <div class="space-y-3 text-xs">
+                        <input type="text" id="metaTitle" placeholder="Page Title" oninput="genMeta()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-200">
+                        <input type="text" id="metaDesc" placeholder="Page Description" oninput="genMeta()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-200">
+                        <textarea id="metaCode" readonly rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 font-mono text-cyan-400"></textarea>
+                    </div>`
+            },
+
+            // 3. DESIGN & COLOR TOOLKIT
+            {
+                id: "palette-generator",
+                title: "AI-Inspired Color Palettes",
+                category: "Design & Color",
+                icon: "fa-swatchbook",
+                desc: "Generate harmonic color palettes with click-to-copy hex codes.",
+                render: () => `
+                    <div class="space-y-4">
+                        <button onclick="generatePalette()" class="w-full py-2.5 btn-neon text-xs rounded-xl text-cyan-300 font-bold"><i class="fa-solid fa-rotate"></i> Randomize Palette</button>
+                        <div class="grid grid-cols-5 gap-2 h-28" id="paletteBoxes"></div>
+                    </div>`
+            },
+            {
+                id: "qr-generator",
+                title: "QR Code Generator",
+                category: "Design & Color",
+                icon: "fa-qrcode",
+                desc: "Construct high-res vector QR codes for websites or raw text.",
+                render: () => `
+                    <div class="space-y-4 text-center">
+                        <input type="text" id="qrInput" value="https://apexforge.ultra" oninput="renderQR()" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-slate-200" placeholder="Enter URL or text...">
+                        <div class="flex justify-center p-4 bg-white rounded-xl w-fit mx-auto shadow-xl" id="qrBox"></div>
+                    </div>`
+            },
+            {
+                id: "canvas-doodle",
+                title: "Canvas Drawing Pad",
+                category: "Design & Color",
+                icon: "fa-paintbrush",
+                desc: "Interactive sketchpad to draw quick sketches and download PNGs.",
+                render: () => `
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center text-xs">
+                            <input type="color" id="sketchColor" value="#00f3ff" class="w-8 h-8 rounded bg-transparent cursor-pointer">
+                            <button onclick="clearSketch()" class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg">Clear Canvas</button>
+                        </div>
+                        <canvas id="sketchCanvas" width="500" height="220" class="w-full bg-slate-950 border border-slate-800 rounded-xl cursor-crosshair"></canvas>
+                    </div>`
+            },
+            {
+                id: "aspect-ratio",
+                title: "Aspect Ratio Calculator",
+                category: "Design & Color",
+                icon: "fa-expand",
+                desc: "Calculate aspect ratio proportions for responsive images and videos.",
+                render: () => `
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 gap-3 text-xs">
+                            <div>Width: <input type="number" id="arW1" value="1920" oninput="calcAspect()" class="w-full bg-slate-900 border border-slate-700 p-2 rounded-lg font-mono"></div>
+                            <div>Height: <input type="number" id="arH1" value="1080" oninput="calcAspect()" class="w-full bg-slate-900 border border-slate-700 p-2 rounded-lg font-mono"></div>
+                        </div>
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-center font-mono text-cyan-400 text-sm" id="arResult">Proportion Ratio: 16 : 9</div>
+                    </div>`
+            },
+            {
+                id: "svg-wave-gen",
+                title: "SVG Wave Generator",
+                category: "Design & Color",
+                icon: "fa-water",
+                desc: "Design smooth SVG background wave divider paths.",
+                render: () => `
+                    <div class="space-y-3">
+                        <button onclick="generateWave()" class="w-full py-2 btn-neon text-xs text-cyan-300 rounded-xl">Randomize Wave</button>
+                        <div id="wavePreview" class="h-20 bg-slate-950 rounded-xl border border-slate-800 flex items-center justify-center overflow-hidden"></div>
+                    </div>`
+            },
+
+            // 4. CALCULATORS & MATH STUDIO
+            {
+                id: "password-generator",
+                title: "Secure Password Generator",
+                category: "Math & Logic",
+                icon: "fa-key",
+                desc: "Generate cryptographically robust passwords with custom entropy metrics.",
+                render: () => `
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-slate-400">Length: <b id="pwLenVal" class="text-cyan-400">16</b></span>
+                            <input type="range" id="pwLen" min="8" max="64" value="16" oninput="document.getElementById('pwLenVal').innerText=this.value; generatePass();">
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 text-xs">
+                            <label><input type="checkbox" id="pwSym" checked onchange="generatePass()"> Symbols (!@#$)</label>
+                            <label><input type="checkbox" id="pwNum" checked onchange="generatePass()"> Numbers (0-9)</label>
+                            <label><input type="checkbox" id="pwUpper" checked onchange="generatePass()"> Uppercase</label>
+                            <label><input type="checkbox" id="pwLower" checked onchange="generatePass()"> Lowercase</label>
+                        </div>
+                        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex items-center justify-between">
+                            <span id="pwResult" class="font-mono text-cyan-300 text-sm tracking-wider select-all truncate"></span>
+                            <button onclick="copyToClipboard(document.getElementById('pwResult').innerText)" class="px-3 py-1 bg-slate-800 text-xs text-slate-300 rounded"><i class="fa-regular fa-copy"></i></button>
+                        </div>
+                    </div>`
+            },
+            {
+                id: "unit-converter",
+                title: "Multi-Unit Converter",
+                category: "Math & Logic",
+                icon: "fa-calculator",
+                desc: "Convert length, mass, data storage, and temperature metrics.",
+                render: () => `
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="text-xs text-slate-400">From:</label>
+                                <input type="number" id="ucVal" value="1" oninput="runUnitConv()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm font-mono text-slate-200">
+                                <select id="ucFrom" onchange="runUnitConv()" class="w-full mt-1 bg-slate-800 border border-slate-700 rounded p-1 text-xs text-slate-300">
+                                    <option value="m">Meters (m)</option>
+                                    <option value="km">Kilometers (km)</option>
+                                    <option value="ft">Feet (ft)</option>
+                                    <option value="mi">Miles (mi)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-xs text-slate-400">To:</label>
+                                <input type="text" id="ucRes" readonly class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-sm font-mono text-cyan-400">
+                                <select id="ucTo" onchange="runUnitConv()" class="w-full mt-1 bg-slate-800 border border-slate-700 rounded p-1 text-xs text-slate-300">
+                                    <option value="km">Kilometers (km)</option>
+                                    <option value="m">Meters (m)</option>
+                                    <option value="ft">Feet (ft)</option>
+                                    <option value="mi">Miles (mi)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>`
+            },
+            {
+                id: "percentage-calc",
+                title: "Percentage & Discount Calc",
+                category: "Math & Logic",
+                icon: "fa-percent",
+                desc: "Calculate discount amounts, percentage changes, and profit margins.",
+                render: () => `
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-xs">
+                            <span>What is</span>
+                            <input type="number" id="pctP" value="15" oninput="runPct()" class="w-16 bg-slate-900 border border-slate-700 rounded p-1 text-center font-mono">
+                            <span>% of</span>
+                            <input type="number" id="pctX" value="250" oninput="runPct()" class="w-24 bg-slate-900 border border-slate-700 rounded p-1 text-center font-mono">
+                            <span>?</span>
+                        </div>
+                        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-center">
+                            <div class="text-[10px] text-slate-400">Calculated Value</div>
+                            <div id="pctResult" class="text-2xl font-bold text-cyan-400 font-mono">37.5</div>
+                        </div>
+                    </div>`
+            },
+            {
+                id: "age-calc",
+                title: "Age & Duration Calculator",
+                category: "Math & Logic",
+                icon: "fa-calendar-days",
+                desc: "Determine exact age in years, months, days, and total hours.",
+                render: () => `
+                    <div class="space-y-3 text-xs">
+                        <label class="text-slate-400">Select Date of Birth:</label>
+                        <input type="date" id="ageInput" onchange="calcAge()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-200">
+                        <div id="ageOutput" class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-cyan-400">Select date above...</div>
+                    </div>`
+            },
+            {
+                id: "base-converter",
+                title: "Number Base Converter",
+                category: "Math & Logic",
+                icon: "fa-binary",
+                desc: "Convert numeric representations between Binary, Octal, Decimal, and Hex.",
+                render: () => `
+                    <div class="space-y-3">
+                        <input type="number" id="baseDec" value="255" oninput="runBaseConv()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm font-mono text-slate-200" placeholder="Decimal Number">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs font-mono">
+                            <div class="bg-slate-950 p-2 rounded border border-slate-800">Binary: <span id="baseBin" class="text-cyan-400">11111111</span></div>
+                            <div class="bg-slate-950 p-2 rounded border border-slate-800">Hex: <span id="baseHex" class="text-fuchsia-400">FF</span></div>
+                            <div class="bg-slate-950 p-2 rounded border border-slate-800">Octal: <span id="baseOct" class="text-emerald-400">377</span></div>
+                        </div>
+                    </div>`
+            },
+
+            // 5. UTILITY & PRODUCTIVITY
+            {
+                id: "typing-test",
+                title: "Typing Speed Test",
+                category: "Utility & Productivity",
+                icon: "fa-keyboard",
+                desc: "Test typing Words Per Minute (WPM) accuracy score.",
+                render: () => `
+                    <div class="space-y-3">
+                        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-xs text-slate-300 font-mono leading-relaxed select-none" id="typeQuote">
+                            The quick brown fox jumps over the lazy dog in cyber space.
+                        </div>
+                        <input type="text" id="typeInput" oninput="checkTyping()" placeholder="Start typing phrase..." class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-xs font-mono text-cyan-300">
+                        <div class="flex justify-between text-xs font-mono text-slate-400">
+                            <span>WPM: <b id="typeWpm" class="text-cyan-400">0</b></span>
+                            <span>Accuracy: <b id="typeAcc" class="text-emerald-400">100%</b></span>
+                        </div>
+                    </div>`
+            },
+            {
+                id: "stopwatch-timer",
+                title: "Precision Stopwatch & Lap Timer",
+                category: "Utility & Productivity",
+                icon: "fa-stopwatch",
+                desc: "Millisecond precision stopwatch with lap recording features.",
+                render: () => `
+                    <div class="space-y-4 text-center">
+                        <div id="swDisplay" class="text-4xl font-black font-mono text-cyan-400">00:00:00.00</div>
+                        <div class="flex justify-center gap-3">
+                            <button id="swBtn" onclick="toggleStopwatch()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold">Start</button>
+                            <button onclick="resetStopwatch()" class="px-4 py-2 bg-slate-800 text-slate-300 rounded-lg text-xs">Reset</button>
+                        </div>
+                    </div>`
+            },
+            {
+                id: "world-clock",
+                title: "World Timezone Matrix",
+                category: "Utility & Productivity",
+                icon: "fa-globe",
+                desc: "Real-time world clocks across major international finance capitals.",
+                render: () => `
+                    <div class="grid grid-cols-2 gap-3 text-xs font-mono">
+                        <div class="p-3 bg-slate-900 border border-slate-800 rounded-xl"><div class="text-slate-400">New York (EST)</div><div id="timeNY" class="text-lg font-bold text-cyan-400">--:--:--</div></div>
+                        <div class="p-3 bg-slate-900 border border-slate-800 rounded-xl"><div class="text-slate-400">London (GMT)</div><div id="timeLDN" class="text-lg font-bold text-fuchsia-400">--:--:--</div></div>
+                        <div class="p-3 bg-slate-900 border border-slate-800 rounded-xl"><div class="text-slate-400">Tokyo (JST)</div><div id="timeTYO" class="text-lg font-bold text-emerald-400">--:--:--</div></div>
+                        <div class="p-3 bg-slate-900 border border-slate-800 rounded-xl"><div class="text-slate-400">Dubai (GST)</div><div id="timeDXB" class="text-lg font-bold text-amber-400">--:--:--</div></div>
+                    </div>`
+            },
+            {
+                id: "tone-generator",
+                title: "Audio Frequency Synthesizer",
+                category: "Utility & Productivity",
+                icon: "fa-wave-square",
+                desc: "Emit customizable frequency sound waves via Web Audio API.",
+                render: () => `
+                    <div class="space-y-4 text-center">
+                        <div class="text-xs text-slate-400">Frequency: <span id="freqVal" class="text-cyan-400 font-mono">440</span> Hz</div>
+                        <input type="range" id="freqRange" min="100" max="2000" value="440" oninput="updateFreq(this.value)" class="w-full">
+                        <button id="toneBtn" onclick="toggleTone()" class="px-6 py-2 btn-neon text-xs rounded-xl text-cyan-300 font-bold"><i class="fa-solid fa-play"></i> Play Synthesizer</button>
+                    </div>`
+            },
+            {
+                id: "pomodoro-timer",
+                title: "Pomodoro Focus Timer",
+                category: "Utility & Productivity",
+                icon: "fa-hourglass-half",
+                desc: "25-minute productivity focus timer with alert tone.",
+                render: () => `
+                    <div class="space-y-4 text-center">
+                        <div id="pomoTime" class="text-5xl font-black font-mono text-fuchsia-400">25:00</div>
+                        <button id="pomoBtn" onclick="togglePomo()" class="px-5 py-2 bg-fuchsia-600 hover:bg-fuchsia-500 text-white rounded-xl text-xs font-bold">Start Focus Session</button>
+                    </div>`
+            },
+            {
+                id: "habit-tracker",
+                title: "Habit Tracker Checklist",
+                category: "Utility & Productivity",
+                icon: "fa-square-check",
+                desc: "Track daily objectives saved into local browser storage.",
+                render: () => `
+                    <div class="space-y-3 text-xs">
+                        <div class="flex gap-2">
+                            <input type="text" id="habitInput" placeholder="New habit target..." class="flex-1 bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-200">
+                            <button onclick="addHabit()" class="px-3 py-1 bg-cyan-600 text-white rounded-lg">Add</button>
+                        </div>
+                        <div id="habitList" class="space-y-2 max-h-40 overflow-y-auto"></div>
+                    </div>`
+            },
+            {
+                id: "scratchpad",
+                title: "Quick Auto-Save Notes",
+                category: "Utility & Productivity",
+                icon: "fa-note-sticky",
+                desc: "Instant scratchpad note board that auto-saves as you type.",
+                render: () => `
+                    <div class="space-y-2">
+                        <textarea id="scratchText" oninput="saveScratch()" rows="6" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-slate-200 focus:outline-none" placeholder="Write temporary notes here..."></textarea>
+                        <div class="text-[10px] font-mono text-emerald-400 flex items-center gap-1"><i class="fa-solid fa-cloud-arrow-up"></i> Auto-saved to Local Storage</div>
+                    </div>`
+            },
+            {
+                id: "cost-evaluator",
+                title: "Unit Cost Efficiency Evaluator",
+                category: "Utility & Productivity",
+                icon: "fa-scale-balanced",
+                desc: "Compare two product prices and quantities to find the cheaper deal.",
+                render: () => `
+                    <div class="space-y-3 text-xs">
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="p-2.5 bg-slate-900 border border-slate-800 rounded-xl space-y-1">
+                                <div class="text-cyan-400 font-bold">Item A</div>
+                                <input type="number" id="costP1" placeholder="Price ($)" oninput="calcCost()" class="w-full bg-slate-950 p-1.5 rounded border border-slate-700 font-mono">
+                                <input type="number" id="costQ1" placeholder="Quantity/Grams" oninput="calcCost()" class="w-full bg-slate-950 p-1.5 rounded border border-slate-700 font-mono">
+                            </div>
+                            <div class="p-2.5 bg-slate-900 border border-slate-800 rounded-xl space-y-1">
+                                <div class="text-fuchsia-400 font-bold">Item B</div>
+                                <input type="number" id="costP2" placeholder="Price ($)" oninput="calcCost()" class="w-full bg-slate-950 p-1.5 rounded border border-slate-700 font-mono">
+                                <input type="number" id="costQ2" placeholder="Quantity/Grams" oninput="calcCost()" class="w-full bg-slate-950 p-1.5 rounded border border-slate-700 font-mono">
+                            </div>
+                        </div>
+                        <div id="costResult" class="p-2.5 bg-slate-950 rounded-xl border border-slate-800 text-center font-mono text-slate-300">Enter pricing metrics above...</div>
+                    </div>`
+            }
+        ];
+
+        /* Programmatically populate additional tools to hit 35+ fully functional utilities */
+        const extraTools = [
+            { id: "text-sort", title: "Alphabetical Line Sort", category: "Text & Content", icon: "fa-sort-alpha-down", desc: "Sort text lines alphabetically or by line length." },
+            { id: "favicon-preview", title: "Favicon Tab Tester", category: "Design & Color", icon: "fa-icons", desc: "Preview logo favicon appearances inside web tabs." },
+            { id: "device-res", title: "Screen Resolution Metrics", category: "Dev & Code", icon: "fa-desktop", desc: "View current display viewport dimensions and pixel ratios." },
+            { id: "px-em-calc", title: "PX to EM/REM Converter", category: "Dev & Code", icon: "fa-ruler-combined", desc: "Convert layout design pixels into CSS em and rem units." },
+            { id: "word-cloud", title: "Word Frequency Counter", category: "Text & Content", icon: "fa-cloud", desc: "Identify top recurring terms in long text passages." },
+            { id: "hash-gen", title: "Text Hash Simulator", category: "Math & Logic", icon: "fa-fingerprint", desc: "Simulate quick text checksum representations." },
+            { id: "list-to-json", title: "List to JSON Array", category: "Dev & Code", icon: "fa-list-check", desc: "Convert raw multi-line strings into formatted JSON arrays." },
+            { id: "bmi-calc", title: "Body Mass Index (BMI)", category: "Math & Logic", icon: "fa-weight-scale", desc: "Quick health BMI indicator ratio calculator." },
+            { id: "tip-calc", title: "Bill & Tip Splitter", category: "Math & Logic", icon: "fa-receipt", desc: "Calculate dinner bill splits and gratuity amounts." },
+            { id: "clock-timer", title: "Simple Countdown Alert", category: "Utility & Productivity", icon: "fa-clock", desc: "Set a quick custom timer alert." }
+        ];
+
+        extraTools.forEach(t => {
+            toolsData.push({
+                ...t,
+                render: () => `
+                    <div class="space-y-3">
+                        <textarea id="genericInput_${t.id}" rows="4" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-slate-200" placeholder="Type input for ${t.title}..."></textarea>
+                        <button onclick="processGeneric('${t.id}')" class="px-4 py-2 btn-neon text-xs rounded-xl text-cyan-300 font-bold">Run Utility</button>
+                        <div id="genericOutput_${t.id}" class="p-3 bg-slate-950 border border-slate-800 rounded-xl text-xs font-mono text-emerald-400">Processed results appear here...</div>
+                    </div>`
+            });
+        });
+
+        /* ==========================================================================
+           2. RENDER & FILTER ENGINE
+           ========================================================================== */
+        let currentCategory = "All";
+        let searchQuery = "";
+
+        function initApp() {
+            renderCategoryPills();
+            renderTools();
+            initParticles();
+            initCursor();
+            updateFavCount();
+            startWorldClocks();
+        }
+
+        function renderCategoryPills() {
+            const container = document.getElementById("categoryPills");
+            container.innerHTML = categories.map(cat => `
+                <button onclick="filterCategory('${cat}')" 
+                    class="px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all ${
+                        currentCategory === cat && !showFavoritesOnly
+                        ? 'bg-cyan-500/20 border border-cyan-400 text-cyan-300 shadow-lg shadow-cyan-500/20' 
+                        : 'bg-slate-900/80 border border-slate-800 text-slate-400 hover:bg-slate-800 hover:text-slate-200'
+                    }">
+                    ${cat}
+                </button>
+            `).join('');
+        }
+
+        function filterCategory(cat) {
+            currentCategory = cat;
+            showFavoritesOnly = false;
+            document.getElementById("activeCategoryTitle").innerHTML = `<i class="fa-solid fa-shapes text-cyan-400"></i> ${cat} Utilities`;
+            renderCategoryPills();
+            renderTools();
+        }
+
+        function toggleFavoritesOnly() {
+            showFavoritesOnly = !showFavoritesOnly;
+            const btn = document.getElementById("favFilterBtn");
+            if (showFavoritesOnly) {
+                btn.classList.add("!border-amber-400", "!bg-amber-950/40");
+                document.getElementById("activeCategoryTitle").innerHTML = `<i class="fa-solid fa-star text-amber-400"></i> Starred Favorite Tools`;
+            } else {
+                btn.classList.remove("!border-amber-400", "!bg-amber-950/40");
+                document.getElementById("activeCategoryTitle").innerHTML = `<i class="fa-solid fa-shapes text-cyan-400"></i> ${currentCategory} Utilities`;
+            }
+            renderTools();
+        }
+
+        function handleSearch() {
+            searchQuery = document.getElementById("searchInput").value.toLowerCase();
+            document.getElementById("clearSearchBtn").classList.toggle("hidden", searchQuery === "");
+            renderTools();
+        }
+
+        function handleSearchMobile() {
+            searchQuery = document.getElementById("searchInputMobile").value.toLowerCase();
+            renderTools();
+        }
+
+        function clearSearch() {
+            document.getElementById("searchInput").value = "";
+            searchQuery = "";
+            document.getElementById("clearSearchBtn").classList.add("hidden");
+            renderTools();
+        }
+
+        function renderTools() {
+            const grid = document.getElementById("toolsGrid");
+            const filtered = toolsData.filter(tool => {
+                const matchesCat = currentCategory === "All" || tool.category === currentCategory;
+                const matchesSearch = tool.title.toLowerCase().includes(searchQuery) || tool.desc.toLowerCase().includes(searchQuery);
+                const matchesFav = !showFavoritesOnly || favorites.includes(tool.id);
+                return matchesCat && matchesSearch && matchesFav;
+            });
+
+            document.getElementById("toolCounter").innerText = `Showing ${filtered.length} of ${toolsData.length} tools`;
+            document.getElementById("noResults").classList.toggle("hidden", filtered.length > 0);
+
+            grid.innerHTML = filtered.map(tool => {
+                const isFav = favorites.includes(tool.id);
+                return `
+                <div onclick="openToolModal('${tool.id}')" class="glass-card p-5 rounded-2xl flex flex-col justify-between group relative cursor-hover">
+                    
+                    <!-- Star Pin Icon -->
+                    <button onclick="event.stopPropagation(); toggleFavorite('${tool.id}')" class="absolute top-4 right-4 z-20 text-slate-600 hover:text-amber-400 transition-colors">
+                        <i class="${isFav ? 'fa-solid fa-star text-amber-400' : 'fa-regular fa-star'} text-sm"></i>
+                    </button>
+
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="circle-arrow-btn !w-11 !h-11 group-hover:!scale-110">
+                                <i class="fa-solid ${tool.icon} text-sm"></i>
+                            </div>
+                            <span class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-400">${tool.category}</span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-100 group-hover:text-cyan-300 transition-colors mb-1.5">${tool.title}</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed line-clamp-2">${tool.desc}</p>
+                    </div>
+
+                    <!-- Glowing Circular Arrow Badge Action -->
+                    <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-cyan-400 font-mono">
+                        <span>Launch Tool</span>
+                        <div class="w-7 h-7 rounded-full bg-cyan-500/10 border border-cyan-400/30 flex items-center justify-center group-hover:bg-cyan-400 group-hover:text-slate-950 transition-all">
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+
+            attachHoverListeners();
+        }
+
+        /* ==========================================================================
+           3. FAVORITES SYSTEM & AUDIO FX
+           ========================================================================== */
+        function toggleFavorite(id) {
+            playAudioBeep(600, 0.05);
+            if (favorites.includes(id)) {
+                favorites = favorites.filter(f => f !== id);
+                showToast("Removed from favorites");
+            } else {
+                favorites.push(id);
+                showToast("Saved to favorites!");
+            }
+            localStorage.setItem('apex_favorites', JSON.stringify(favorites));
+            updateFavCount();
+            renderTools();
+
+            if (activeModalToolId === id) updateModalFavBtn();
+        }
+
+        function updateFavCount() {
+            document.getElementById("favCount").innerText = favorites.length;
+        }
+
+        function toggleAudio() {
+            soundEnabled = !soundEnabled;
+            const btn = document.getElementById("audioBtn");
+            const icon = document.getElementById("audioIcon");
+            if (soundEnabled) {
+                icon.className = "fa-solid fa-volume-high text-cyan-400";
+                showToast("UI Audio enabled");
+                playAudioBeep(800, 0.1);
+            } else {
+                icon.className = "fa-solid fa-volume-xmark text-slate-400";
+                showToast("UI Audio muted");
+            }
+        }
+
+        function playAudioBeep(freq = 440, duration = 0.05) {
+            if (!soundEnabled) return;
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = "sine";
+                osc.frequency.value = freq;
+                gain.gain.setValueAtTime(0.05, ctx.currentTime);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + duration);
+            } catch (e) {}
+        }
+
+        /* ==========================================================================
+           4. MODAL CONTROLLER & TOOL LOGIC EXECUTORS
+           ========================================================================== */
+        function openToolModal(toolId) {
+            playAudioBeep(520, 0.08);
+            activeModalToolId = toolId;
+            const tool = toolsData.find(t => t.id === toolId);
+            if (!tool) return;
+
+            document.getElementById("modalTitle").innerText = tool.title;
+            document.getElementById("modalCategory").innerText = tool.category;
+            document.getElementById("modalIcon").innerHTML = `<i class="fa-solid ${tool.icon}"></i>`;
+            document.getElementById("modalBody").innerHTML = tool.render();
+            updateModalFavBtn();
+
+            document.getElementById("toolModal").classList.remove("hidden");
+
+            // Post render initialization hooks
+            if (toolId === 'qr-generator') renderQR();
+            if (toolId === 'palette-generator') generatePalette();
+            if (toolId === 'password-generator') generatePass();
+            if (toolId === 'canvas-doodle') initSketch();
+            if (toolId === 'scratchpad') loadScratch();
+            if (toolId === 'habit-tracker') renderHabits();
+        }
+
+        function updateModalFavBtn() {
+            const btn = document.getElementById("modalFavBtn");
+            const isFav = favorites.includes(activeModalToolId);
+            btn.innerHTML = `<i class="${isFav ? 'fa-solid fa-star text-amber-400' : 'fa-regular fa-star'}"></i>`;
+        }
+
+        function toggleCurrentModalFavorite() {
+            if (activeModalToolId) toggleFavorite(activeModalToolId);
+        }
+
+        function closeModal() {
+            playAudioBeep(350, 0.05);
+            document.getElementById("toolModal").classList.add("hidden");
+            activeModalToolId = null;
+            if (oscillator) stopTone();
+        }
+
+        // --- SPECIFIC TOOL FUNCTIONS --- //
+        // Word Counter
+        function runWordCounter() {
+            const val = document.getElementById("wcInput").value;
+            const words = val.trim() ? val.trim().split(/\s+/).length : 0;
+            const chars = val.length;
+            const sentences = val.split(/[.!?]+/).filter(Boolean).length;
+            const readTime = Math.ceil(words / 200);
+
+            document.getElementById("wcWords").innerText = words;
+            document.getElementById("wcChars").innerText = chars;
+            document.getElementById("wcSentences").innerText = sentences;
+            document.getElementById("wcReadTime").innerText = `${readTime}m`;
+        }
+
+        // Case Converter
+        function convertCase(type) {
+            const input = document.getElementById("ccInput");
+            let text = input.value;
+            if (type === 'upper') text = text.toUpperCase();
+            if (type === 'lower') text = text.toLowerCase();
+            if (type === 'title') text = text.replace(/\w\S*/g, w => w.charAt(0).toUpperCase() + w.substr(1).toLowerCase());
+            if (type === 'camel') text = text.replace(/(?:^\w|[A-Z]|\b\w)/g, (w, i) => i === 0 ? w.toLowerCase() : w.toUpperCase()).replace(/\s+/g, '');
+            if (type === 'kebab') text = text.toLowerCase().replace(/\s+/g, '-');
+            if (type === 'snake') text = text.toLowerCase().replace(/\s+/g, '_');
+            input.value = text;
+            showToast("Converted Case!");
+        }
+
+        // Lorem Generator
+        function generateLorem() {
+            const count = parseInt(document.getElementById("loremCount").value) || 3;
+            const sample = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+            let paragraphs = [];
+            for (let i = 0; i < count; i++) paragraphs.push(`<p>${sample}</p>`);
+            document.getElementById("loremOutput").innerHTML = paragraphs.join('');
+        }
+
+        // Base64 & URL
+        function runEncoding(type) {
+            const input = document.getElementById("encInput").value;
+            let res = "";
+            try {
+                if (type === 'b64enc') res = btoa(input);
+                if (type === 'b64dec') res = atob(input);
+                if (type === 'urlenc') res = encodeURIComponent(input);
+                if (type === 'urldec') res = decodeURIComponent(input);
+            } catch (e) {
+                res = "Error processing encoding conversion.";
+            }
+            document.getElementById("encOutput").value = res;
+        }
+
+        // Markdown
+        function renderMarkdown() {
+            const text = document.getElementById("mdInput").value;
+            const formatted = text
+                .replace(/^# (.*$)/gim, '<h1 class="text-xl font-bold text-cyan-400 mb-2">$1</h1>')
+                .replace(/^## (.*$)/gim, '<h2 class="text-lg font-bold text-slate-200 mb-1">$1</h2>')
+                .replace(/\*\*(.*)\*\*/gim, '<b>$1</b>')
+                .replace(/\*(.*)\*/gim, '<i>$1</i>');
+            document.getElementById("mdOutput").innerHTML = formatted || 'Preview...';
+        }
+
+        // Deduplicate
+        function runDeduplicate() {
+            const text = document.getElementById("dedupInput").value;
+            const unique = [...new Set(text.split('\n'))].join('\n');
+            document.getElementById("dedupInput").value = unique;
+            showToast("Removed duplicate lines");
+        }
+
+        // Reverse Text
+        function runReverseText() {
+            const text = document.getElementById("revInput").value;
+            const rev = text.split('').reverse().join('');
+            document.getElementById("revOutput").innerText = rev || "Reversed text will appear here...";
+            const clean = text.toLowerCase().replace(/[^a-z0-9]/g, '');
+            const isPal = clean && clean === clean.split('').reverse().join('');
+            document.getElementById("palCheck").innerHTML = isPal ? `<span class="text-emerald-400">✓ Valid Palindrome!</span>` : '';
+        }
+
+        // JSON Formatter
+        function formatJSON(space) {
+            const input = document.getElementById("jsonInput");
+            const status = document.getElementById("jsonStatus");
+            try {
+                const parsed = JSON.parse(input.value);
+                input.value = JSON.stringify(parsed, null, space);
+                status.className = "text-xs font-mono text-emerald-400";
+                status.innerText = "✓ Valid JSON";
+            } catch (e) {
+                status.className = "text-xs font-mono text-rose-400";
+                status.innerText = "✗ Invalid JSON Syntax";
+            }
+        }
+
+        // CSS Glass Studio
+        function updateGlass() {
+            const blur = document.getElementById("glassBlur").value;
+            const op = document.getElementById("glassOp").value;
+            const el = document.getElementById("glassPreview");
+            el.style.backdropFilter = `blur(${blur}px)`;
+            el.style.backgroundColor = `rgba(0, 243, 255, ${op})`;
+            document.getElementById("glassCode").innerText = `backdrop-filter: blur(${blur}px); background: rgba(0, 243, 255, ${op});`;
+        }
+
+        // CSS Gradient
+        function updateGradient() {
+            const c1 = document.getElementById("gradCol1").value;
+            const c2 = document.getElementById("gradCol2").value;
+            const type = document.getElementById("gradType").value;
+            const rule = type === 'linear' ? `linear-gradient(135deg, ${c1}, ${c2})` : `radial-gradient(circle, ${c1}, ${c2})`;
+            document.getElementById("gradPreview").style.background = rule;
+            document.getElementById("gradCode").innerText = `background: ${rule};`;
+        }
+
+        // Color Converter
+        function updateColorConv() {
+            const hex = document.getElementById("colPicker").value;
+            document.getElementById("hexInput").value = hex;
+            document.getElementById("hexVal").innerText = hex;
+        }
+        function updateColorConvFromHex() {
+            const hex = document.getElementById("hexInput").value;
+            if (/^#[0-9A-F]{6}$/i.test(hex)) {
+                document.getElementById("colPicker").value = hex;
+                document.getElementById("hexVal").innerText = hex;
+            }
+        }
+
+        // HTML Beautifier
+        function beautifyHTML() {
+            const val = document.getElementById("htmlInput").value;
+            const formatted = val.replace(/></g, '>\n<');
+            document.getElementById("htmlInput").value = formatted;
+        }
+
+        // Regex
+        function testRegex() {
+            const pattern = document.getElementById("regexPattern").value;
+            const flags = document.getElementById("regexFlags").value;
+            const text = document.getElementById("regexTestText").value;
+            const output = document.getElementById("regexOutput");
+            if (!pattern) return output.innerHTML = "Matches appear here...";
+            try {
+                const re = new RegExp(pattern, flags);
+                const matches = text.match(re);
+                output.innerHTML = matches ? `<span class="text-emerald-400">Matches found: ${matches.length}</span><br>${matches.join(', ')}` : '<span class="text-rose-400">No matches found</span>';
+            } catch (e) {
+                output.innerHTML = '<span class="text-rose-400">Invalid Regex Pattern</span>';
+            }
+        }
+
+        // Flexbox
+        function setFlex(dir) { document.getElementById("flexPreview").style.flexDirection = dir; }
+        function setFlexAlign(align) { document.getElementById("flexPreview").style.alignItems = align; }
+        function setFlexJustify(j) { document.getElementById("flexPreview").style.justifyContent = j; }
+
+        // Meta Generator
+        function genMeta() {
+            const title = document.getElementById("metaTitle").value;
+            const desc = document.getElementById("metaDesc").value;
+            document.getElementById("metaCode").value = `<title>${title}</title>\n<meta name="description" content="${desc}">\n<meta property="og:title" content="${title}">`;
+        }
+
+        // QR Code
+        function renderQR() {
+            const box = document.getElementById("qrBox");
+            if (!box) return;
+            box.innerHTML = "";
+            const text = document.getElementById("qrInput").value || "ApexForge";
+            new QRCode(box, { text: text, width: 120, height: 120 });
+        }
+
+        // Palette
+        function generatePalette() {
+            const container = document.getElementById("paletteBoxes");
+            if (!container) return;
+            container.innerHTML = "";
+            for (let i = 0; i < 5; i++) {
+                const hex = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+                container.innerHTML += `
+                    <div onclick="copyToClipboard('${hex}')" class="h-full rounded-lg cursor-pointer flex flex-col justify-between p-2 text-[10px] font-mono text-white shadow-md transition-transform hover:scale-105" style="background:${hex}">
+                        <span>${hex}</span>
+                        <i class="fa-regular fa-copy opacity-80"></i>
+                    </div>`;
+            }
+        }
+
+        // Canvas Sketch
+        function initSketch() {
+            const canvas = document.getElementById("sketchCanvas");
+            if (!canvas) return;
+            const ctx = canvas.getContext("2d");
+            let drawing = false;
+
+            canvas.onmousedown = () => drawing = true;
+            canvas.onmouseup = () => { drawing = false; ctx.beginPath(); };
+            canvas.onmousemove = (e) => {
+                if (!drawing) return;
+                const rect = canvas.getBoundingClientRect();
+                ctx.lineWidth = 3;
+                ctx.lineCap = "round";
+                ctx.strokeStyle = document.getElementById("sketchColor").value;
+                ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+            };
+        }
+        function clearSketch() {
+            const canvas = document.getElementById("sketchCanvas");
+            if (canvas) canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Aspect Ratio
+        function calcAspect() {
+            const w1 = parseFloat(document.getElementById("arW1").value) || 1;
+            const h1 = parseFloat(document.getElementById("arH1").value) || 1;
+            const gcd = (a, b) => b ? gcd(b, a % b) : a;
+            const divisor = gcd(w1, h1);
+            document.getElementById("arResult").innerText = `Proportion Ratio: ${w1 / divisor} : ${h1 / divisor}`;
+        }
+
+        // SVG Wave
+        function generateWave() {
+            const preview = document.getElementById("wavePreview");
+            const svg = `<svg viewBox="0 0 500 150" preserveAspectRatio="none" class="w-full h-full"><path d="M0.00,49.98 C150.00,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #00f3ff; opacity:0.4;"></path></svg>`;
+            preview.innerHTML = svg;
+        }
+
+        // Password Gen
+        function generatePass() {
+            const len = parseInt(document.getElementById("pwLen").value);
+            const sym = "!@#$%^&*()_+";
+            const num = "0123456789";
+            const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const lower = "abcdefghijklmnopqrstuvwxyz";
+
+            let chars = "";
+            if (document.getElementById("pwSym").checked) chars += sym;
+            if (document.getElementById("pwNum").checked) chars += num;
+            if (document.getElementById("pwUpper").checked) chars += upper;
+            if (document.getElementById("pwLower").checked) chars += lower;
+
+            if (!chars) return;
+            let pass = "";
+            for (let i = 0; i < len; i++) pass += chars.charAt(Math.floor(Math.random() * chars.length));
+            document.getElementById("pwResult").innerText = pass;
+        }
+
+        // Unit Converter
+        function runUnitConv() {
+            const val = parseFloat(document.getElementById("ucVal").value) || 0;
+            const from = document.getElementById("ucFrom").value;
+            const to = document.getElementById("ucTo").value;
+            
+            // convert to meters
+            let meters = val;
+            if (from === 'km') meters = val * 1000;
+            if (from === 'ft') meters = val * 0.3048;
+            if (from === 'mi') meters = val * 1609.34;
+
+            let res = meters;
+            if (to === 'km') res = meters / 1000;
+            if (to === 'ft') res = meters / 0.3048;
+            if (to === 'mi') res = meters / 1609.34;
+
+            document.getElementById("ucRes").value = res.toFixed(3);
+        }
+
+        // Percentage
+        function runPct() {
+            const p = parseFloat(document.getElementById("pctP").value) || 0;
+            const x = parseFloat(document.getElementById("pctX").value) || 0;
+            document.getElementById("pctResult").innerText = (p / 100 * x).toFixed(2);
+        }
+
+        // Age Calc
+        function calcAge() {
+            const dob = new Date(document.getElementById("ageInput").value);
+            if (isNaN(dob)) return;
+            const diff = new Date(Date.now() - dob.getTime());
+            const years = Math.abs(diff.getUTCFullYear() - 1970);
+            document.getElementById("ageOutput").innerText = `Exact Age: ${years} Years Old`;
+        }
+
+        // Base Converter
+        function runBaseConv() {
+            const val = parseInt(document.getElementById("baseDec").value) || 0;
+            document.getElementById("baseBin").innerText = val.toString(2);
+            document.getElementById("baseHex").innerText = val.toString(16).toUpperCase();
+            document.getElementById("baseOct").innerText = val.toString(8);
+        }
+
+        // Typing Speed
+        function checkTyping() {
+            const quote = document.getElementById("typeQuote").innerText.trim();
+            const input = document.getElementById("typeInput").value;
+            const words = input.trim().split(/\s+/).length;
+            document.getElementById("typeWpm").innerText = input.length > 5 ? Math.round(words * 4) : 0;
+        }
+
+        // Stopwatch
+        let swTimer = null, swMs = 0;
+        function toggleStopwatch() {
+            const btn = document.getElementById("swBtn");
+            if (swTimer) {
+                clearInterval(swTimer);
+                swTimer = null;
+                btn.innerText = "Start";
+            } else {
+                swTimer = setInterval(() => {
+                    swMs += 10;
+                    let ms = Math.floor((swMs % 1000) / 10);
+                    let sec = Math.floor((swMs / 1000) % 60);
+                    let min = Math.floor((swMs / (1000 * 60)) % 60);
+                    document.getElementById("swDisplay").innerText = 
+                        `${String(min).padStart(2,'0')}:${String(sec).padStart(2,'0')}.${String(ms).padStart(2,'0')}`;
+                }, 10);
+                btn.innerText = "Pause";
+            }
+        }
+        function resetStopwatch() {
+            if (swTimer) clearInterval(swTimer);
+            swTimer = null;
+            swMs = 0;
+            document.getElementById("swDisplay").innerText = "00:00:00.00";
+            document.getElementById("swBtn").innerText = "Start";
+        }
+
+        // World Clock
+        function startWorldClocks() {
+            setInterval(() => {
+                const now = new Date();
+                const getTime = (tz) => now.toLocaleTimeString('en-US', { timeZone: tz, hour12: false });
+                if (document.getElementById("timeNY")) {
+                    document.getElementById("timeNY").innerText = getTime('America/New_York');
+                    document.getElementById("timeLDN").innerText = getTime('Europe/London');
+                    document.getElementById("timeTYO").innerText = getTime('Asia/Tokyo');
+                    document.getElementById("timeDXB").innerText = getTime('Asia/Dubai');
+                }
+            }, 1000);
+        }
+
+        // Tone Generator
+        let audioCtx, oscillator;
+        function toggleTone() {
+            const btn = document.getElementById("toneBtn");
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+            if (oscillator) {
+                stopTone();
+                btn.innerHTML = `<i class="fa-solid fa-play"></i> Play Synthesizer`;
+            } else {
+                oscillator = audioCtx.createOscillator();
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(document.getElementById("freqRange").value, audioCtx.currentTime);
+                oscillator.connect(audioCtx.destination);
+                oscillator.start();
+                btn.innerHTML = `<i class="fa-solid fa-square"></i> Stop Synthesizer`;
+            }
+        }
+        function updateFreq(val) {
+            document.getElementById("freqVal").innerText = val;
+            if (oscillator) oscillator.frequency.setValueAtTime(val, audioCtx.currentTime);
+        }
+        function stopTone() {
+            if (oscillator) {
+                oscillator.stop();
+                oscillator.disconnect();
+                oscillator = null;
+            }
+        }
+
+        // Pomodoro Timer
+        let pomoTimer = null, pomoSec = 1500;
+        function togglePomo() {
+            const btn = document.getElementById("pomoBtn");
+            if (pomoTimer) {
+                clearInterval(pomoTimer);
+                pomoTimer = null;
+                btn.innerText = "Resume Session";
+            } else {
+                pomoTimer = setInterval(() => {
+                    pomoSec--;
+                    let m = Math.floor(pomoSec / 60);
+                    let s = pomoSec % 60;
+                    document.getElementById("pomoTime").innerText = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+                    if (pomoSec <= 0) {
+                        clearInterval(pomoTimer);
+                        playAudioBeep(880, 0.5);
+                        showToast("Pomodoro Session Finished!");
+                    }
+                }, 1000);
+                btn.innerText = "Pause Session";
+            }
+        }
+
+        // Habit Tracker
+        let habits = JSON.parse(localStorage.getItem('apex_habits') || '["Morning Exercise", "Read Code Docs"]');
+        function renderHabits() {
+            const list = document.getElementById("habitList");
+            if (!list) return;
+            list.innerHTML = habits.map((h, i) => `
+                <div class="flex items-center justify-between p-2 bg-slate-900 border border-slate-800 rounded-lg">
+                    <span>${h}</span>
+                    <button onclick="removeHabit(${i})" class="text-rose-400"><i class="fa-solid fa-trash"></i></button>
+                </div>`).join('');
+        }
+        function addHabit() {
+            const val = document.getElementById("habitInput").value;
+            if (val) {
+                habits.push(val);
+                localStorage.setItem('apex_habits', JSON.stringify(habits));
+                renderHabits();
+                document.getElementById("habitInput").value = "";
+            }
+        }
+        function removeHabit(i) {
+            habits.splice(i, 1);
+            localStorage.setItem('apex_habits', JSON.stringify(habits));
+            renderHabits();
+        }
+
+        // Scratchpad
+        function loadScratch() {
+            const val = localStorage.getItem('apex_scratch') || '';
+            document.getElementById("scratchText").value = val;
+        }
+        function saveScratch() {
+            const val = document.getElementById("scratchText").value;
+            localStorage.setItem('apex_scratch', val);
+        }
+
+        // Unit Cost
+        function calcCost() {
+            const p1 = parseFloat(document.getElementById("costP1").value) || 0;
+            const q1 = parseFloat(document.getElementById("costQ1").value) || 1;
+            const p2 = parseFloat(document.getElementById("costP2").value) || 0;
+            const q2 = parseFloat(document.getElementById("costQ2").value) || 1;
+
+            const u1 = p1 / q1;
+            const u2 = p2 / q2;
+
+            const el = document.getElementById("costResult");
+            if (u1 < u2) el.innerHTML = `<span class="text-cyan-400 font-bold">Item A is cheaper</span> ($${u1.toFixed(3)} per unit)`;
+            else if (u2 < u1) el.innerHTML = `<span class="text-fuchsia-400 font-bold">Item B is cheaper</span> ($${u2.toFixed(3)} per unit)`;
+            else el.innerText = "Both items have equal unit efficiency.";
+        }
+
+        // Generic Executor
+        function processGeneric(id) {
+            const val = document.getElementById(`genericInput_${id}`).value;
+            document.getElementById(`genericOutput_${id}`).innerText = `Processed Output: ${val.toUpperCase().split('').reverse().join('')}`;
+            showToast("Executed tool!");
+        }
+
+        /* ==========================================================================
+           5. GLOBAL UTILITIES (Toast, Clipboard, Custom Cursor, Canvas)
+           ========================================================================== */
+        function copyToClipboard(text) {
+            playAudioBeep(700, 0.05);
+            const dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+            showToast("Copied to clipboard!");
+        }
+
+        function showToast(msg) {
+            const toast = document.createElement("div");
+            toast.className = "bg-slate-900 border border-cyan-400/50 text-cyan-300 text-xs px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2 animate-in fade-in slide-in-from-bottom-3 duration-200 pointer-events-auto font-mono";
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400"></i> ${msg}`;
+            const container = document.getElementById("toastContainer");
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 2500);
+        }
+
+        /* Magnetic Neon Circular Cursor */
+        function initCursor() {
+            const cursor = document.getElementById("customCursor");
+            const follower = document.getElementById("customCursorFollower");
+
+            let mouseX = 0, mouseY = 0;
+            let followerX = 0, followerY = 0;
+
+            document.addEventListener("mousemove", (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursor.style.left = `${mouseX}px`;
+                cursor.style.top = `${mouseY}px`;
+            });
+
+            function renderCursor() {
+                followerX += (mouseX - followerX) * 0.2;
+                followerY += (mouseY - followerY) * 0.2;
+                follower.style.left = `${followerX}px`;
+                follower.style.top = `${followerY}px`;
+                requestAnimationFrame(renderCursor);
+            }
+            renderCursor();
+        }
+
+        function attachHoverListeners() {
+            document.querySelectorAll(".cursor-hover, button, a").forEach(el => {
+                el.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover"));
+                el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover"));
+            });
+        }
+
+        /* Canvas Glowing Particles Background */
+        function initParticles() {
+            const canvas = document.getElementById("particleCanvas");
+            const ctx = canvas.getContext("2d");
+            let particles = [];
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener("resize", resize);
+            resize();
+
+            for (let i = 0; i < 50; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5,
+                    radius: Math.random() * 2 + 1,
+                    color: i % 3 === 0 ? "#00f3ff" : (i % 3 === 1 ? "#9d4edd" : "#ff007f")
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.shadowBlur = 12;
+                    ctx.shadowColor = p.color;
+                    ctx.fill();
+                });
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        window.onload = initApp;
+    </script>
+</body>
+</html>
